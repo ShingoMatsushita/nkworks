@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import NextLink from 'next/link';
 import { Link } from '@/components/common/Link';
 import { cn } from '@/lib/utils/cn';
 
@@ -15,6 +16,14 @@ export const Header: React.FC = () => {
     { href: '/blog', label: 'お知らせ' },
     { href: '/contact', label: 'お問い合わせ' },
   ];
+
+  const toggleMenu = () => {
+    setIsMenuOpen(prev => !prev);
+  };
+
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
 
   return (
     <header className="sticky top-0 z-50 bg-gradient-to-r from-gray-200 via-gray-100 to-gray-200 border-b border-gray-300 shadow-md">
@@ -42,9 +51,11 @@ export const Header: React.FC = () => {
 
           {/* Mobile Menu Button */}
           <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 text-gray-900 cursor-pointer"
+            type="button"
+            onClick={toggleMenu}
+            className="md:hidden p-2 text-gray-900"
             aria-label="メニュー"
+            aria-expanded={isMenuOpen}
           >
             <svg
               className="w-6 h-6"
@@ -65,24 +76,22 @@ export const Header: React.FC = () => {
         </div>
 
         {/* Mobile Navigation */}
-        <div
-          className={cn(
-            'md:hidden overflow-hidden transition-all duration-300',
-            isMenuOpen ? 'max-h-96 pb-4' : 'max-h-0'
-          )}
-        >
-          <div className="flex flex-col pt-4 border-t border-gray-200">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="px-4 py-3 text-sm font-medium text-gray-900 hover:bg-gray-50 hover:text-[--color-primary] transition-colors"
-              >
-                {item.label}
-              </Link>
-            ))}
+        {isMenuOpen && (
+          <div className="md:hidden pb-4 border-t border-gray-200">
+            <div className="flex flex-col pt-4">
+              {navItems.map((item) => (
+                <NextLink
+                  key={item.href}
+                  href={item.href}
+                  className="px-4 py-3 text-sm font-medium text-gray-900 hover:bg-gray-50 hover:text-[--color-primary] transition-colors"
+                  onClick={closeMenu}
+                >
+                  {item.label}
+                </NextLink>
+              ))}
+            </div>
           </div>
-        </div>
+        )}
       </nav>
     </header>
   );

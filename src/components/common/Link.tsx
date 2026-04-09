@@ -8,6 +8,7 @@ interface LinkProps {
   className?: string;
   variant?: 'default' | 'nav' | 'footer';
   external?: boolean;
+  onClick?: () => void;
 }
 
 export const Link: React.FC<LinkProps> = ({
@@ -16,6 +17,7 @@ export const Link: React.FC<LinkProps> = ({
   className = '',
   variant = 'default',
   external = false,
+  onClick,
 }) => {
   const variantClasses = {
     default: 'text-[--color-primary] hover:text-[--color-primary-dark] transition-colors duration-200',
@@ -30,6 +32,7 @@ export const Link: React.FC<LinkProps> = ({
         target="_blank"
         rel="noopener noreferrer"
         className={cn(variantClasses[variant], className)}
+        onClick={onClick}
       >
         {children}
       </a>
@@ -37,7 +40,11 @@ export const Link: React.FC<LinkProps> = ({
   }
 
   return (
-    <NextLink href={href} className={cn(variantClasses[variant], className)}>
+    <NextLink
+      href={href}
+      className={cn(variantClasses[variant], className)}
+      onClick={onClick}
+    >
       {children}
     </NextLink>
   );
