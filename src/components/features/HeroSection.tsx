@@ -117,6 +117,11 @@ const NavigationButton: React.FC<NavigationButtonProps> = ({ direction, onClick 
 
 export const HeroSection: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
+
+  // Minimum swipe distance (in px)
+  const minSwipeDistance = 50;
 
   const goToPrevious = () => {
     setCurrentIndex((prevIndex) =>
@@ -128,6 +133,29 @@ export const HeroSection: React.FC = () => {
     setCurrentIndex((prevIndex) =>
       prevIndex === HERO_SLIDES.length - 1 ? 0 : prevIndex + 1
     );
+  };
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+
+    if (isLeftSwipe) {
+      goToNext();
+    } else if (isRightSwipe) {
+      goToPrevious();
+    }
   };
 
   const getSlidePosition = (index: number): 'prev' | 'current' | 'next' | 'hidden' => {
@@ -144,7 +172,12 @@ export const HeroSection: React.FC = () => {
   return (
     <section className="relative bg-gray-900">
       {/* Hero Slides Container */}
-      <div className="relative h-[32rem] md:h-[36rem] overflow-hidden">
+      <div
+        className="relative h-[32rem] md:h-[36rem] overflow-hidden"
+        onTouchStart={onTouchStart}
+        onTouchMove={onTouchMove}
+        onTouchEnd={onTouchEnd}
+      >
         {/* All Slides - Only render visible slides for performance */}
         {HERO_SLIDES.map((slide, index) => {
           const position = getSlidePosition(index);
