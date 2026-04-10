@@ -355,10 +355,10 @@ export default async function Home() {
                   >
                     <div className="flex flex-col h-full">
                       {/* Eyecatch Image */}
-                      {news.eyecatch && (
+                      {news.thumbnail && (
                         <div className="relative w-full h-48 bg-gray-100">
                           <Image
-                            src={news.eyecatch.url}
+                            src={news.thumbnail.url}
                             alt={news.title}
                             fill
                             className="object-cover"
