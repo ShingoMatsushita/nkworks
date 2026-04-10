@@ -30,7 +30,7 @@ export const Header: React.FC = () => {
       <nav className="container-custom">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center group">
+          <Link href="/" className="flex items-center group" onClick={closeMenu}>
             <span className="text-xl md:text-2xl font-bold text-gray-900 tracking-tight">
               直樹<span className="text-[--color-primary]">バイク</span>
             </span>
