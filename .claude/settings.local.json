@@ -14,7 +14,8 @@
       "Read(//Users/matsushitashingo/Documents/Developments/**)",
       "Bash(mv nkworks/要件定義書.md /tmp/要件定義書.md)",
       "Bash(mv /tmp/要件定義書.md /Users/matsushitashingo/Documents/Developments/nkworks/要件定義書.md)",
-      "Bash(npm install:*)"
+      "Bash(npm install:*)",
+      "Bash(npm run:*)"
     ]
   }
 }
