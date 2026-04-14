@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:naoki-bike-website-h5ep.vercel.app)",
+      "Bash(git init:*)",
+      "Bash(gh repo:*)",
+      "Bash(gh auth:*)",
+      "Bash(git remote:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git branch:*)",
+      "Bash(git push:*)",
+      "Bash(npx:*)",
+      "Read(//Users/matsushitashingo/Documents/Developments/**)",
+      "Bash(mv nkworks/要件定義書.md /tmp/要件定義書.md)",
+      "Bash(mv /tmp/要件定義書.md /Users/matsushitashingo/Documents/Developments/nkworks/要件定義書.md)",
+      "Bash(npm install:*)"
+    ]
+  }
+}
