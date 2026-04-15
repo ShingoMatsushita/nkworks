@@ -185,7 +185,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
             {/* Service 1 */}
             <div className="bg-white overflow-hidden transition-all duration-200 hover:shadow-xl border-2 border-transparent hover:border-[--color-primary]">
-              <div className="bg-gradient-to-br from-[--color-primary] to-[--color-primary-dark] p-5 md:p-6 text-white">
+              <div className="bg-gradient-to-br from-[#cc0000] to-[#990000] p-5 md:p-6 text-white">
                 <div className="text-4xl md:text-5xl mb-2">🔧</div>
                 <div className="text-xl md:text-2xl font-bold mb-1">01</div>
                 <h3 className="text-lg md:text-xl font-bold">修理・整備</h3>
@@ -207,7 +207,7 @@ export default function Home() {
 
             {/* Service 2 */}
             <div className="bg-white overflow-hidden transition-all duration-200 hover:shadow-xl border-2 border-transparent hover:border-[--color-primary]">
-              <div className="bg-gradient-to-br from-[--color-primary] to-[--color-primary-dark] p-5 md:p-6 text-white">
+              <div className="bg-gradient-to-br from-[#cc0000] to-[#990000] p-5 md:p-6 text-white">
                 <div className="text-4xl md:text-5xl mb-2">⚡</div>
                 <div className="text-xl md:text-2xl font-bold mb-1">02</div>
                 <h3 className="text-lg md:text-xl font-bold">カスタム・チューニング</h3>
@@ -229,7 +229,7 @@ export default function Home() {
 
             {/* Service 3 */}
             <div className="bg-white overflow-hidden transition-all duration-200 hover:shadow-xl border-2 border-transparent hover:border-[--color-primary]">
-              <div className="bg-gradient-to-br from-[--color-primary] to-[--color-primary-dark] p-5 md:p-6 text-white">
+              <div className="bg-gradient-to-br from-[#cc0000] to-[#990000] p-5 md:p-6 text-white">
                 <div className="text-4xl md:text-5xl mb-2">🏍️</div>
                 <div className="text-xl md:text-2xl font-bold mb-1">03</div>
                 <h3 className="text-lg md:text-xl font-bold">中古車販売・買取</h3>
