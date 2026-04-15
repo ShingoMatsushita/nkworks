@@ -97,7 +97,7 @@ const NavigationButton: React.FC<NavigationButtonProps> = ({ direction, onClick 
     <button
       onClick={handleClick}
       type="button"
-      className={`absolute ${positionClass} top-1/2 -translate-y-1/2 z-50 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white p-2 md:p-3 transition-all duration-200 rounded-full shadow-lg cursor-pointer`}
+      className={`absolute ${positionClass} top-1/2 -translate-y-1/2 z-30 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white p-2 md:p-3 transition-all duration-200 rounded-full shadow-lg cursor-pointer`}
       aria-label={ariaLabel}
     >
       <svg

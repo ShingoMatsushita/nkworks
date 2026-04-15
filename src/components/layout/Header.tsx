@@ -10,10 +10,6 @@ export const Header: React.FC = () => {
 
   const navItems = [
     { href: '/', label: 'ホーム' },
-    { href: '/about', label: '会社案内' },
-    { href: '/services', label: 'サービス' },
-    { href: '/gallery', label: '実績ギャラリー' },
-    { href: '/blog', label: 'お知らせ' },
     { href: '/contact', label: 'お問い合わせ' },
   ];
 
