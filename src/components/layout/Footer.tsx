@@ -1,5 +1,4 @@
 import React from 'react';
-import Image from 'next/image';
 import { Link } from '@/components/common/Link';
 import { FaInstagram, FaXTwitter, FaFacebook } from 'react-icons/fa6';
 
@@ -42,13 +41,15 @@ export const Footer: React.FC = () => {
           {/* Company Info */}
           <div>
             <div className="mb-4">
-              <Image src="/logo.png" alt="NK Works Motorcycle Shop" width={160} height={64} className="h-12 w-auto" />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/logo.png" alt="NK Works Motorcycle Shop" className="h-12 w-auto" />
             </div>
             <p className="text-gray-300 mb-3 text-sm">
               バイク修理・整備、中古車販売
             </p>
             <p className="text-sm text-gray-300">
-              営業時間: 9:00 - 18:00
+              営業時間: 9:00 - 18:00<br />
+              定休日: なし
             </p>
           </div>
 
