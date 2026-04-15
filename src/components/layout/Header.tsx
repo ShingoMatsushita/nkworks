@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import NextLink from 'next/link';
+import Image from 'next/image';
 import { Link } from '@/components/common/Link';
 import { cn } from '@/lib/utils/cn';
 
@@ -27,10 +28,8 @@ export const Header: React.FC = () => {
         <nav className="container-custom">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
-            <Link href="/" className="flex items-center group" onClick={closeMenu}>
-              <span className="text-xl md:text-2xl font-bold text-gray-900 tracking-tight">
-                直樹<span className="text-[--color-primary]">バイク</span>
-              </span>
+            <Link href="/" className="flex items-center" onClick={closeMenu}>
+              <Image src="/logo.png" alt="NK Works Motorcycle Shop" width={140} height={56} className="h-10 w-auto" />
             </Link>
 
             {/* Desktop Navigation */}
