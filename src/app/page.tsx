@@ -182,72 +182,80 @@ export default function Home() {
             </h3>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
-            {/* Service 1 */}
-            <div className="bg-white overflow-hidden transition-all duration-200 hover:shadow-xl border-2 border-transparent hover:border-[--color-primary]">
-              <div className="bg-gradient-to-br from-[#cc0000] to-[#990000] p-5 md:p-6 text-white">
-                <div className="text-4xl md:text-5xl mb-2">🔧</div>
-                <div className="text-xl md:text-2xl font-bold mb-1">01</div>
-                <h3 className="text-lg md:text-xl font-bold">修理・整備</h3>
+          {/* モバイル: 横スクロール / PC: グリッド */}
+          <div className="overflow-x-auto -mx-4 px-4 md:mx-0 md:px-0 snap-x snap-mandatory md:overflow-visible">
+            <div className="flex gap-4 md:grid md:grid-cols-3 md:gap-6 pb-2">
+              {/* Service 1 */}
+              <div className="bg-white overflow-hidden transition-all duration-200 hover:shadow-xl border-2 border-transparent hover:border-[--color-primary] flex-shrink-0 w-[80vw] md:w-auto snap-start">
+                <div className="bg-gradient-to-br from-[#cc0000] to-[#990000] p-5 md:p-6 text-white">
+                  <div className="text-4xl md:text-5xl mb-2">🔧</div>
+                  <div className="text-xl md:text-2xl font-bold mb-1">01</div>
+                  <h3 className="text-lg md:text-xl font-bold">修理・整備</h3>
+                </div>
+                <div className="p-5 md:p-6">
+                  <p className="text-xs md:text-sm text-[--text-secondary] mb-3 md:mb-4 leading-relaxed">
+                    一般整備から車検対応まで、確かな技術で丁寧に対応いたします。
+                  </p>
+                  <ul className="text-xs md:text-sm text-[--text-secondary] space-y-2">
+                    <li className="flex items-center"><span className="text-[--color-primary] mr-2">✓</span> 一般整備 ¥5,000〜</li>
+                    <li className="flex items-center"><span className="text-[--color-primary] mr-2">✓</span> 車検対応 ¥30,000〜</li>
+                    <li className="flex items-center"><span className="text-[--color-primary] mr-2">✓</span> エンジンオーバーホール ¥80,000〜</li>
+                    <li className="flex items-center"><span className="text-[--color-primary] mr-2">✓</span> 緊急修理</li>
+                    <li className="flex items-center"><span className="text-[--color-primary] mr-2">✓</span> 定期点検 ¥3,000〜</li>
+                    <li className="flex items-center"><span className="text-[--color-primary] mr-2">✓</span> 電装系修理 ¥5,000〜</li>
+                  </ul>
+                </div>
               </div>
-              <div className="p-5 md:p-6">
-                <p className="text-xs md:text-sm text-[--text-secondary] mb-3 md:mb-4 leading-relaxed">
-                  一般整備から車検対応まで、確かな技術で丁寧に対応いたします。
-                </p>
-                <ul className="text-xs md:text-sm text-[--text-secondary] space-y-2">
-                  <li className="flex items-center"><span className="text-[--color-primary] mr-2">✓</span> 一般整備 ¥5,000〜</li>
-                  <li className="flex items-center"><span className="text-[--color-primary] mr-2">✓</span> 車検対応 ¥30,000〜</li>
-                  <li className="flex items-center"><span className="text-[--color-primary] mr-2">✓</span> エンジンオーバーホール ¥80,000〜</li>
-                  <li className="flex items-center"><span className="text-[--color-primary] mr-2">✓</span> 緊急修理</li>
-                  <li className="flex items-center"><span className="text-[--color-primary] mr-2">✓</span> 定期点検 ¥3,000〜</li>
-                  <li className="flex items-center"><span className="text-[--color-primary] mr-2">✓</span> 電装系修理 ¥5,000〜</li>
-                </ul>
-              </div>
-            </div>
 
-            {/* Service 2 */}
-            <div className="bg-white overflow-hidden transition-all duration-200 hover:shadow-xl border-2 border-transparent hover:border-[--color-primary]">
-              <div className="bg-gradient-to-br from-[#cc0000] to-[#990000] p-5 md:p-6 text-white">
-                <div className="text-4xl md:text-5xl mb-2">⚡</div>
-                <div className="text-xl md:text-2xl font-bold mb-1">02</div>
-                <h3 className="text-lg md:text-xl font-bold">カスタム・チューニング</h3>
+              {/* Service 2 */}
+              <div className="bg-white overflow-hidden transition-all duration-200 hover:shadow-xl border-2 border-transparent hover:border-[--color-primary] flex-shrink-0 w-[80vw] md:w-auto snap-start">
+                <div className="bg-gradient-to-br from-[#cc0000] to-[#990000] p-5 md:p-6 text-white">
+                  <div className="text-4xl md:text-5xl mb-2">⚡</div>
+                  <div className="text-xl md:text-2xl font-bold mb-1">02</div>
+                  <h3 className="text-lg md:text-xl font-bold">カスタム・チューニング</h3>
+                </div>
+                <div className="p-5 md:p-6">
+                  <p className="text-xs md:text-sm text-[--text-secondary] mb-3 md:mb-4 leading-relaxed">
+                    お客様だけの一台を。ご要望に合わせたカスタムやチューニングを承ります。
+                  </p>
+                  <ul className="text-xs md:text-sm text-[--text-secondary] space-y-2">
+                    <li className="flex items-center"><span className="text-[--color-primary] mr-2">✓</span> マフラー交換 ¥10,000〜</li>
+                    <li className="flex items-center"><span className="text-[--color-primary] mr-2">✓</span> ハンドル・ミラー交換 ¥5,000〜</li>
+                    <li className="flex items-center"><span className="text-[--color-primary] mr-2">✓</span> カスタムペイント ¥50,000〜</li>
+                    <li className="flex items-center"><span className="text-[--color-primary] mr-2">✓</span> パーツ取り付け ¥3,000〜</li>
+                    <li className="flex items-center"><span className="text-[--color-primary] mr-2">✓</span> サスペンション交換 ¥15,000〜</li>
+                    <li className="flex items-center"><span className="text-[--color-primary] mr-2">✓</span> ECUチューニング ¥30,000〜</li>
+                  </ul>
+                </div>
               </div>
-              <div className="p-5 md:p-6">
-                <p className="text-xs md:text-sm text-[--text-secondary] mb-3 md:mb-4 leading-relaxed">
-                  お客様だけの一台を。ご要望に合わせたカスタムやチューニングを承ります。
-                </p>
-                <ul className="text-xs md:text-sm text-[--text-secondary] space-y-2">
-                  <li className="flex items-center"><span className="text-[--color-primary] mr-2">✓</span> マフラー交換 ¥10,000〜</li>
-                  <li className="flex items-center"><span className="text-[--color-primary] mr-2">✓</span> ハンドル・ミラー交換 ¥5,000〜</li>
-                  <li className="flex items-center"><span className="text-[--color-primary] mr-2">✓</span> カスタムペイント ¥50,000〜</li>
-                  <li className="flex items-center"><span className="text-[--color-primary] mr-2">✓</span> パーツ取り付け ¥3,000〜</li>
-                  <li className="flex items-center"><span className="text-[--color-primary] mr-2">✓</span> サスペンション交換 ¥15,000〜</li>
-                  <li className="flex items-center"><span className="text-[--color-primary] mr-2">✓</span> ECUチューニング ¥30,000〜</li>
-                </ul>
-              </div>
-            </div>
 
-            {/* Service 3 */}
-            <div className="bg-white overflow-hidden transition-all duration-200 hover:shadow-xl border-2 border-transparent hover:border-[--color-primary]">
-              <div className="bg-gradient-to-br from-[#cc0000] to-[#990000] p-5 md:p-6 text-white">
-                <div className="text-4xl md:text-5xl mb-2">🏍️</div>
-                <div className="text-xl md:text-2xl font-bold mb-1">03</div>
-                <h3 className="text-lg md:text-xl font-bold">中古車販売・買取</h3>
-              </div>
-              <div className="p-5 md:p-6">
-                <p className="text-xs md:text-sm text-[--text-secondary] mb-3 md:mb-4 leading-relaxed">
-                  厳選された中古バイクを取り揃えています。買取も積極的に行っています。
-                </p>
-                <ul className="text-xs md:text-sm text-[--text-secondary] space-y-2">
-                  <li className="flex items-center"><span className="text-[--color-primary] mr-2">✓</span> 中古車販売（全車保証付き）</li>
-                  <li className="flex items-center"><span className="text-[--color-primary] mr-2">✓</span> バイク買取（査定無料）</li>
-                  <li className="flex items-center"><span className="text-[--color-primary] mr-2">✓</span> 下取り対応</li>
-                  <li className="flex items-center"><span className="text-[--color-primary] mr-2">✓</span> 納車整備無料</li>
-                  <li className="flex items-center"><span className="text-[--color-primary] mr-2">✓</span> 車両探し代行 ¥10,000〜</li>
-                  <li className="flex items-center"><span className="text-[--color-primary] mr-2">✓</span> 名義変更代行 ¥8,000〜</li>
-                </ul>
+              {/* Service 3 */}
+              <div className="bg-white overflow-hidden transition-all duration-200 hover:shadow-xl border-2 border-transparent hover:border-[--color-primary] flex-shrink-0 w-[80vw] md:w-auto snap-start">
+                <div className="bg-gradient-to-br from-[#cc0000] to-[#990000] p-5 md:p-6 text-white">
+                  <div className="text-4xl md:text-5xl mb-2">🏍️</div>
+                  <div className="text-xl md:text-2xl font-bold mb-1">03</div>
+                  <h3 className="text-lg md:text-xl font-bold">中古車販売・買取</h3>
+                </div>
+                <div className="p-5 md:p-6">
+                  <p className="text-xs md:text-sm text-[--text-secondary] mb-3 md:mb-4 leading-relaxed">
+                    厳選された中古バイクを取り揃えています。買取も積極的に行っています。
+                  </p>
+                  <ul className="text-xs md:text-sm text-[--text-secondary] space-y-2">
+                    <li className="flex items-center"><span className="text-[--color-primary] mr-2">✓</span> 中古車販売（全車保証付き）</li>
+                    <li className="flex items-center"><span className="text-[--color-primary] mr-2">✓</span> バイク買取（査定無料）</li>
+                    <li className="flex items-center"><span className="text-[--color-primary] mr-2">✓</span> 下取り対応</li>
+                    <li className="flex items-center"><span className="text-[--color-primary] mr-2">✓</span> 納車整備無料</li>
+                    <li className="flex items-center"><span className="text-[--color-primary] mr-2">✓</span> 車両探し代行 ¥10,000〜</li>
+                    <li className="flex items-center"><span className="text-[--color-primary] mr-2">✓</span> 名義変更代行 ¥8,000〜</li>
+                  </ul>
+                </div>
               </div>
             </div>
+          </div>
+          <div className="flex md:hidden justify-center gap-1 mt-3 text-xs text-[--text-secondary]">
+            <svg className="w-4 h-4 animate-pulse" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M15 19l-7-7 7-7" /></svg>
+            <span>スワイプで見る</span>
+            <svg className="w-4 h-4 animate-pulse" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M9 5l7 7-7 7" /></svg>
           </div>
         </div>
       </section>
@@ -264,11 +272,13 @@ export default function Home() {
             </h3>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {/* モバイル: 横スクロール / PC: グリッド */}
+          <div className="overflow-x-auto -mx-4 px-4 md:mx-0 md:px-0 snap-x snap-mandatory md:overflow-visible">
+            <div className="flex gap-4 md:grid md:grid-cols-3 md:gap-4 pb-2">
             {galleryItems.map((item) => (
               <div
                 key={item.id}
-                className="group relative aspect-square bg-gray-200 overflow-hidden hover:shadow-lg transition-all duration-200"
+                className="group relative flex-shrink-0 w-[72vw] md:w-auto aspect-square bg-gray-200 overflow-hidden hover:shadow-lg transition-all duration-200 snap-start"
               >
                 <Image
                   src={item.imageUrl}
@@ -289,6 +299,12 @@ export default function Home() {
                 </div>
               </div>
             ))}
+            </div>
+          </div>
+          <div className="flex md:hidden justify-center gap-1 mt-3 text-xs text-[--text-secondary]">
+            <svg className="w-4 h-4 animate-pulse" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M15 19l-7-7 7-7" /></svg>
+            <span>スワイプで見る</span>
+            <svg className="w-4 h-4 animate-pulse" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M9 5l7 7-7 7" /></svg>
           </div>
         </div>
       </section>
