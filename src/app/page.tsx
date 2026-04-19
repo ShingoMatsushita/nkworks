@@ -183,10 +183,10 @@ export default function Home() {
           </div>
 
           {/* モバイル: 横スクロール / PC: グリッド */}
-          <div className="overflow-x-auto -mx-4 px-4 md:mx-0 md:px-0 snap-x snap-mandatory md:overflow-visible">
-            <div className="flex gap-4 md:grid md:grid-cols-3 md:gap-6 pb-2">
+          <div className="overflow-x-auto -mx-4 md:mx-0 snap-x snap-mandatory md:overflow-visible" style={{scrollPaddingLeft: '10vw'}}>
+            <div className="flex gap-4 md:grid md:grid-cols-3 md:gap-6 pb-2 px-[10vw] md:px-0">
               {/* Service 1 */}
-              <div className="bg-white overflow-hidden transition-all duration-200 hover:shadow-xl border-2 border-transparent hover:border-[--color-primary] flex-shrink-0 w-[80vw] md:w-auto snap-start">
+              <div className="bg-white overflow-hidden transition-all duration-200 hover:shadow-xl border-2 border-transparent hover:border-[--color-primary] flex-shrink-0 w-[80vw] md:w-auto snap-center">
                 <div className="bg-gradient-to-br from-[#cc0000] to-[#990000] p-5 md:p-6 text-white">
                   <div className="text-4xl md:text-5xl mb-2">🔧</div>
                   <div className="text-xl md:text-2xl font-bold mb-1">01</div>
@@ -208,7 +208,7 @@ export default function Home() {
               </div>
 
               {/* Service 2 */}
-              <div className="bg-white overflow-hidden transition-all duration-200 hover:shadow-xl border-2 border-transparent hover:border-[--color-primary] flex-shrink-0 w-[80vw] md:w-auto snap-start">
+              <div className="bg-white overflow-hidden transition-all duration-200 hover:shadow-xl border-2 border-transparent hover:border-[--color-primary] flex-shrink-0 w-[80vw] md:w-auto snap-center">
                 <div className="bg-gradient-to-br from-[#cc0000] to-[#990000] p-5 md:p-6 text-white">
                   <div className="text-4xl md:text-5xl mb-2">⚡</div>
                   <div className="text-xl md:text-2xl font-bold mb-1">02</div>
@@ -230,7 +230,7 @@ export default function Home() {
               </div>
 
               {/* Service 3 */}
-              <div className="bg-white overflow-hidden transition-all duration-200 hover:shadow-xl border-2 border-transparent hover:border-[--color-primary] flex-shrink-0 w-[80vw] md:w-auto snap-start">
+              <div className="bg-white overflow-hidden transition-all duration-200 hover:shadow-xl border-2 border-transparent hover:border-[--color-primary] flex-shrink-0 w-[80vw] md:w-auto snap-center">
                 <div className="bg-gradient-to-br from-[#cc0000] to-[#990000] p-5 md:p-6 text-white">
                   <div className="text-4xl md:text-5xl mb-2">🏍️</div>
                   <div className="text-xl md:text-2xl font-bold mb-1">03</div>
@@ -273,12 +273,12 @@ export default function Home() {
           </div>
 
           {/* モバイル: 横スクロール / PC: グリッド */}
-          <div className="overflow-x-auto -mx-4 px-4 md:mx-0 md:px-0 snap-x snap-mandatory md:overflow-visible">
-            <div className="flex gap-4 md:grid md:grid-cols-3 md:gap-4 pb-2">
+          <div className="overflow-x-auto -mx-4 md:mx-0 snap-x snap-mandatory md:overflow-visible" style={{scrollPaddingLeft: '14vw'}}>
+            <div className="flex gap-4 md:grid md:grid-cols-3 md:gap-4 pb-2 px-[14vw] md:px-0">
             {galleryItems.map((item) => (
               <div
                 key={item.id}
-                className="group relative flex-shrink-0 w-[72vw] md:w-auto aspect-square bg-gray-200 overflow-hidden hover:shadow-lg transition-all duration-200 snap-start"
+                className="group relative flex-shrink-0 w-[72vw] md:w-auto aspect-square bg-gray-200 overflow-hidden hover:shadow-lg transition-all duration-200 snap-center"
               >
                 <Image
                   src={item.imageUrl}
