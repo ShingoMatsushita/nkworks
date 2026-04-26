@@ -155,7 +155,7 @@ export default async function Home() {
       {/* ===== About ===== */}
       <section className="py-16 md:py-20 bg-white">
         <div className="container-custom">
-          <SectionHeader label="ABOUT US" title="直樹バイクについて" description="創業15年以上、地域のライダーの皆様に愛されるショップです。国家資格を持つ整備士が在籍し、確かな技術と丁寧なサービスでお客様のバイクライフを全力でサポートしています。" />
+          <SectionHeader label="ABOUT US" title="直樹バイクについて" description="創業2年、地域のライダーの皆様に愛されるショップです。国家資格を持つ整備士が在籍し、確かな技術と丁寧なサービスでお客様のバイクライフを全力でサポートしています。" />
 
           {/* 会社概要 */}
           <div className="grid grid-cols-1 md:grid-cols-[280px_1fr] border border-gray-200 overflow-hidden">
@@ -346,19 +346,6 @@ export default async function Home() {
             </div>
           )}
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-gray-700">
-            {[
-              { icon: '🏁', title: 'レーサー製作', desc: 'サーキット仕様のレーサー製作・改造を承ります。本気で走りたい方はご相談ください。' },
-              { icon: '⚙️', title: 'マシンメンテナンス', desc: 'レース前後のメンテナンス・セッティング調整。走りのパフォーマンスを最大限に引き出します。' },
-              { icon: '🏆', title: 'レース参戦実績', desc: '自らサーキットに立ち、実戦で得た知識と技術。その経験がお客様のマシンに還元されます。' },
-            ].map(({ icon, title, desc }) => (
-              <div key={title} className="bg-gray-900 p-6 md:p-8 text-center">
-                <div className="text-3xl mb-3">{icon}</div>
-                <h4 className="font-bold text-white mb-2">{title}</h4>
-                <p className="text-xs md:text-sm text-gray-400 leading-relaxed">{desc}</p>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
