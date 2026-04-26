@@ -77,3 +77,17 @@ export async function getLatestGalleryItems(limit = 6): Promise<GalleryItem[]> {
   const data = await getGalleryItems(limit, 0);
   return data.contents;
 }
+
+// 全ギャラリーアイテムを取得（トップページ全表示用）
+export async function getAllGalleryItems(): Promise<GalleryItem[]> {
+  try {
+    const data = await client.get<GalleryItemList>({
+      endpoint: 'gallery',
+      queries: { limit: 100, orders: 'createdAt' },
+    });
+    return data.contents ?? [];
+  } catch (error) {
+    console.error('Failed to fetch all gallery items:', error);
+    return [];
+  }
+}
