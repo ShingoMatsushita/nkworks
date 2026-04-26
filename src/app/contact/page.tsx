@@ -12,7 +12,6 @@ type FormData = {
   phone: string;
   category: string;
   message: string;
-  privacyAgreed: boolean;
 };
 
 type FormErrors = {
@@ -30,7 +29,6 @@ export default function ContactPage() {
     phone: '',
     category: '',
     message: '',
-    privacyAgreed: false,
   });
   const [errors, setErrors] = useState<FormErrors>({});
 
@@ -57,11 +55,6 @@ export default function ContactPage() {
     // お問い合わせ内容（必須）
     if (!formData.message.trim()) {
       newErrors.message = 'お問い合わせ内容を入力してください';
-    }
-
-    // プライバシーポリシー同意（必須）
-    if (!formData.privacyAgreed) {
-      newErrors.privacyAgreed = 'プライバシーポリシーに同意してください';
     }
 
     setErrors(newErrors);
@@ -127,7 +120,6 @@ export default function ContactPage() {
       phone: '',
       category: '',
       message: '',
-      privacyAgreed: false,
     });
     setErrors({});
     setStep('input');
@@ -281,25 +273,6 @@ export default function ContactPage() {
                     placeholder="お問い合わせ内容をご記入ください"
                   />
                   {errors.message && <p className="mt-1 text-sm text-red-500">{errors.message}</p>}
-                </div>
-
-                {/* プライバシーポリシー */}
-                <div className="mb-6">
-                  <label className="flex items-start cursor-pointer">
-                    <input
-                      type="checkbox"
-                      name="privacyAgreed"
-                      checked={formData.privacyAgreed}
-                      onChange={handleInputChange}
-                      className="mt-1 mr-2 w-4 h-4 cursor-pointer"
-                    />
-                    <span className="text-sm text-[--text-secondary]">
-                      <span className="text-[--color-primary]">*</span> プライバシーポリシーに同意します
-                    </span>
-                  </label>
-                  {errors.privacyAgreed && (
-                    <p className="mt-1 text-sm text-red-500">{errors.privacyAgreed}</p>
-                  )}
                 </div>
 
                 {/* 送信ボタン */}
