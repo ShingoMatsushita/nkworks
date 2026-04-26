@@ -49,7 +49,7 @@ export const Footer: React.FC = () => {
             </p>
             <p className="text-sm text-gray-300">
               営業時間: 9:00 - 18:00<br />
-              定休日: 水曜・第2第4日曜
+              定休日: なし
             </p>
           </div>
 

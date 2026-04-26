@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import Script from 'next/script';
 import { HeroSection } from '@/components/features/HeroSection';
 import { ContactCTA } from '@/components/common/ContactCTA';
@@ -196,18 +197,37 @@ export default async function Home() {
           </div>
 
           {/* 会社概要 */}
-          <div className="grid grid-cols-2 md:grid-cols-4 border border-gray-200 divide-y md:divide-y-0 md:divide-x divide-gray-200">
-            {[
-              { label: '営業時間', value: '9:00–18:00' },
-              { label: '定休日', value: '水曜・第2第4日曜' },
-              { label: '電話番号', value: '000-0000-0000' },
-              { label: '従業員', value: '8名（整備士5名）' },
-            ].map(({ label, value }) => (
-              <div key={label} className="px-5 py-4">
-                <div className="text-xs text-[--text-secondary] mb-1">{label}</div>
-                <div className="font-bold text-[--text-primary] text-sm">{value}</div>
-              </div>
-            ))}
+          <div className="grid grid-cols-1 md:grid-cols-[280px_1fr] border border-gray-200 overflow-hidden">
+            {/* 写真 */}
+            <div className="relative h-56 md:h-auto overflow-hidden bg-gray-100">
+              <Image
+                src="https://images.microcms-assets.io/assets/5dd44bc9b2924bdfada852944b9a2723/634c7c1226554038a47cb1ec2be8b73c/IMG_1762.jpg"
+                alt="NK Works"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 280px"
+              />
+            </div>
+            {/* 詳細テーブル */}
+            <div className="divide-y divide-gray-200">
+              {[
+                { label: '店舗名',   value: 'NK Works（直樹バイク）' },
+                { label: '代表者',   value: '○○ ○○' },
+                { label: '事業内容', value: 'バイクの修理・整備、フルレストア・カスタム車両製作、板金・塗装・仕上げ（サンドブラスト含む）、サーキット向けレーサー製作・メンテナンス' },
+                { label: '営業時間', value: '9:00–18:00' },
+                { label: '定休日',   value: 'なし' },
+                { label: '電話番号', value: '000-0000-0000' },
+                { label: 'FAX',      value: '000-0000-0000' },
+                { label: 'メール',   value: 'info@nkworks.com' },
+                { label: '実績',     value: '創業15年以上' },
+                { label: '従業員',   value: '2名' },
+              ].map(({ label, value }) => (
+                <div key={label} className="grid grid-cols-[96px_1fr] md:grid-cols-[120px_1fr]">
+                  <div className="px-4 py-3 bg-gray-50 text-xs font-bold text-[--text-secondary] flex items-center border-r border-gray-200">{label}</div>
+                  <div className="px-4 py-3 text-sm text-[--text-primary] flex items-center">{value}</div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -231,7 +251,7 @@ export default async function Home() {
                   sizes="(max-width: 768px) 100vw, 50vw"
                   priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/10" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/70 to-black/35" />
                 <div className="absolute inset-0 p-6 md:p-8 flex flex-col justify-between text-white">
                   <div>
                     <p className="text-xs font-bold tracking-widest text-[--color-primary] mb-2 uppercase">Restore &amp; Custom Build</p>
@@ -250,7 +270,7 @@ export default async function Home() {
                   </div>
                   <div className="flex items-center justify-between pt-4 border-t border-white/20">
                     <span className="text-xs text-white/50">料金はお問い合わせください</span>
-                    <span className="text-[--color-primary] text-xs font-bold">→ お問い合わせ</span>
+                    <Link href="/contact" className="text-[--color-primary] text-xs font-bold hover:underline">→ お問い合わせ</Link>
                   </div>
                 </div>
               </div>
@@ -269,7 +289,7 @@ export default async function Home() {
                   sizes="(max-width: 768px) 100vw, 50vw"
                   priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/10" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/70 to-black/35" />
                 <div className="absolute inset-0 p-6 md:p-8 flex flex-col justify-between text-white">
                   <div>
                     <p className="text-xs font-bold tracking-widest text-[--color-primary] mb-2 uppercase">Paint &amp; Finish</p>
@@ -288,7 +308,7 @@ export default async function Home() {
                   </div>
                   <div className="flex items-center justify-between pt-4 border-t border-white/20">
                     <span className="text-xs text-white/50">料金はお問い合わせください</span>
-                    <span className="text-[--color-primary] text-xs font-bold">→ お問い合わせ</span>
+                    <Link href="/contact" className="text-[--color-primary] text-xs font-bold hover:underline">→ お問い合わせ</Link>
                   </div>
                 </div>
               </div>
