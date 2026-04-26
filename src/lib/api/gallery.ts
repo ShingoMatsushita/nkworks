@@ -80,14 +80,21 @@ export async function getLatestGalleryItems(limit = 6): Promise<GalleryItem[]> {
 
 // 全ギャラリーアイテムを取得（トップページ全表示用）
 export async function getAllGalleryItems(): Promise<GalleryItem[]> {
+  const apiKey = process.env.MICROCMS_API_KEY;
+  const domain = process.env.MICROCMS_SERVICE_DOMAIN;
+  if (!apiKey || !domain) return [];
   try {
-    const data = await client.get<GalleryItemList>({
-      endpoint: 'gallery',
-      queries: { limit: 100, orders: 'createdAt' },
-    });
+    const res = await fetch(
+      `https://${domain}.microcms.io/api/v1/gallery?limit=100&orders=createdAt`,
+      {
+        headers: { 'X-MICROCMS-API-KEY': apiKey },
+        next: { revalidate: 3600 },
+      }
+    );
+    if (!res.ok) return [];
+    const data = await res.json();
     return data.contents ?? [];
-  } catch (error) {
-    console.error('Failed to fetch all gallery items:', error);
+  } catch {
     return [];
   }
 }
