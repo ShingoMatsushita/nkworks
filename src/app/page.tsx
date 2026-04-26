@@ -309,7 +309,7 @@ export default async function Home() {
       </section>
 
       {/* ===== Gallery ===== */}
-      <section className="py-16 md:py-20 bg-white">
+      <section id="gallery" className="py-16 md:py-20 bg-white">
         <div className="container-custom">
           <SectionHeader label="GALLERY" title="実績ギャラリー" />
 

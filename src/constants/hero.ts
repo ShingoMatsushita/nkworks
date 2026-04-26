@@ -1,6 +1,7 @@
 export interface HeroSlide {
   id: number;
   image: string;
+  label: string;
   title: string;
   subtitle: string;
   description: string;
@@ -10,29 +11,33 @@ export const HERO_SLIDES: readonly HeroSlide[] = [
   {
     id: 1,
     image: 'https://images.microcms-assets.io/assets/5dd44bc9b2924bdfada852944b9a2723/17e8fc642331440f9fc6705bc8f5d6dc/IMG_5504.jpg',
-    title: '確かな技術で',
-    subtitle: '最高のバイクライフを',
-    description: 'バイク修理・整備から中古車販売まで、お客様のバイクライフを全力でサポート',
+    label: 'NK WORKS MOTORCYCLE SHOP',
+    title: 'バイクを、もっと',
+    subtitle: '好きになれる場所',
+    description: 'レストア・車両製作から板金・塗装、サーキット活動まで。創業15年以上の技術でお客様のバイクライフを全力でサポートします。',
   },
   {
     id: 2,
     image: 'https://images.microcms-assets.io/assets/5dd44bc9b2924bdfada852944b9a2723/c8c1bcb527f44673a92f4d403ab17d06/IMG_2480.jpg',
-    title: 'カスタム・チューニング',
-    subtitle: 'お客様だけの一台を',
-    description: 'ご要望に合わせた最高のカスタムバイクを実現します',
+    label: 'RESTORE & CUSTOM BUILD',
+    title: 'レストア・',
+    subtitle: '車両製作',
+    description: '旧車のフルレストアからオーダーメイド車両製作まで。お客様の思い描く理想の1台を丁寧に仕上げます。',
   },
   {
     id: 3,
-    image: 'https://images.microcms-assets.io/assets/5dd44bc9b2924bdfada852944b9a2723/9aace8c40fc84aa3983d3d845cce684e/IMG_6278.jpg',
-    title: '厳選された中古車',
-    subtitle: '安心の品質保証',
-    description: '整備済みの高品質な中古バイクを多数取り揃えています',
+    image: 'https://images.microcms-assets.io/assets/5dd44bc9b2924bdfada852944b9a2723/51a7e379ddc14d4eb7794598a3f1f44a/IMG_3355.jpg',
+    label: 'PAINT & FINISH',
+    title: '板金・塗装・',
+    subtitle: 'バフ仕上げ',
+    description: '全塗装・板金からバフ仕上げ・ポリッシュ、サンドブラスト処理まで。細部まで妥協しない仕上がりをお届けします。',
   },
   {
     id: 4,
-    image: 'https://images.microcms-assets.io/assets/5dd44bc9b2924bdfada852944b9a2723/bb64331c40d44d53b98cecfdfc588f5e/IMG_5816.jpg',
-    title: '修理・メンテナンス',
-    subtitle: '一般整備から車検まで',
-    description: '経験豊富な整備士が、あなたのバイクを丁寧にメンテナンス',
+    image: 'https://images.microcms-assets.io/assets/5dd44bc9b2924bdfada852944b9a2723/3cabca613a234891806ac30a76a3988a/IMG_5810.jpg',
+    label: 'CIRCUIT ACTIVITY',
+    title: 'サーキットで',
+    subtitle: '鍛えた技術を',
+    description: 'NK Worksはレースフィールドにも積極参戦。実戦で培った知識と技術が、すべての整備・車両製作に還元されます。',
   },
 ] as const;
