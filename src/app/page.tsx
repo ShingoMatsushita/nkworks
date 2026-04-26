@@ -48,20 +48,6 @@ function SubHeading({ label, count }: { label: string; count?: number }) {
   );
 }
 
-/** モバイル用スワイプヒント */
-function SwipeHint() {
-  return (
-    <div className="flex md:hidden justify-center items-center gap-1 mt-3 text-xs text-[--text-secondary]">
-      <svg className="w-4 h-4 animate-pulse" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
-        <path d="M15 19l-7-7 7-7" />
-      </svg>
-      <span>スワイプで見る</span>
-      <svg className="w-4 h-4 animate-pulse" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
-        <path d="M9 5l7 7-7 7" />
-      </svg>
-    </div>
-  );
-}
 
 /** 横スクロール フォトストリップ（自然比率） */
 function PhotoStrip({ items }: { items: GalleryItem[] }) {
@@ -231,20 +217,18 @@ export default async function Home() {
         <div className="container-custom">
           <SectionHeader label="SERVICES" title="サービス内容" />
 
-          {/* メインカード 2枚（モバイル横スクロール） */}
-          <div
-            className="overflow-x-auto -mx-4 md:mx-0 snap-x snap-mandatory md:overflow-visible scrollbar-hide"
-            style={{ scrollPaddingLeft: '1rem' }}
-          >
-            <div className="flex gap-4 md:grid md:grid-cols-2 md:gap-6 pb-2 px-4 md:px-0">
+          {/* サービス 2ブロック: PC=2カラム / モバイル=縦積み */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-8">
 
-              <div className="relative overflow-hidden flex-shrink-0 w-[82vw] md:w-auto min-h-[420px] md:min-h-[500px] snap-start group">
+            {/* ── レストア・車両製作 ── */}
+            <div>
+              <div className="relative overflow-hidden min-h-[400px] md:min-h-[460px] group mb-5">
                 <Image
                   src="https://images.microcms-assets.io/assets/5dd44bc9b2924bdfada852944b9a2723/c8c1bcb527f44673a92f4d403ab17d06/IMG_2480.jpg"
                   alt="レストア・車両製作"
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-700"
-                  sizes="(max-width: 768px) 82vw, 50vw"
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   priority
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/10" />
@@ -270,14 +254,19 @@ export default async function Home() {
                   </div>
                 </div>
               </div>
+              <SubHeading label="完成車・実績" count={completedCars.length} />
+              <PhotoStrip items={completedCars} />
+            </div>
 
-              <div className="relative overflow-hidden flex-shrink-0 w-[82vw] md:w-auto min-h-[420px] md:min-h-[500px] snap-start group">
+            {/* ── 板金・塗装・仕上げ ── */}
+            <div>
+              <div className="relative overflow-hidden min-h-[400px] md:min-h-[460px] group mb-5">
                 <Image
                   src="https://images.microcms-assets.io/assets/5dd44bc9b2924bdfada852944b9a2723/51a7e379ddc14d4eb7794598a3f1f44a/IMG_3355.jpg"
                   alt="板金・塗装・仕上げ"
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-700"
-                  sizes="(max-width: 768px) 82vw, 50vw"
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   priority
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/10" />
@@ -303,21 +292,10 @@ export default async function Home() {
                   </div>
                 </div>
               </div>
-
+              <SubHeading label="施工事例" count={paint.length} />
+              <PhotoStrip items={paint} />
             </div>
-          </div>
-          <SwipeHint />
 
-          {/* 完成車実績フォトストリップ */}
-          <div className="mt-10">
-            <SubHeading label="レストア・完成車実績" count={completedCars.length} />
-            <PhotoStrip items={completedCars} />
-          </div>
-
-          {/* 板金・塗装・サンドブラスト施工事例ストリップ */}
-          <div className="mt-8">
-            <SubHeading label="板金・塗装・サンドブラスト 施工事例" count={paint.length} />
-            <PhotoStrip items={paint} />
           </div>
 
           {/* 一般・車検整備（サブ） */}
