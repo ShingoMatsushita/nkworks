@@ -172,20 +172,27 @@ export default async function Home() {
             {/* 詳細テーブル */}
             <div className="divide-y divide-gray-200">
               {[
-                { label: '店舗名',   value: 'NK Works（直樹バイク）' },
-                { label: '代表者',   value: '○○ ○○' },
-                { label: '事業内容', value: 'バイクの修理・整備、フルレストア・カスタム車両製作、板金・塗装・仕上げ（サンドブラスト含む）、サーキット向けレーサー製作・メンテナンス' },
+                { label: '店舗名',   value: 'NK Works' },
+                { label: '代表者',   value: '松下　直樹' },
+                { label: '事業内容', value: (
+                  <ul className="list-disc list-inside space-y-1">
+                    <li>バイクの修理・整備</li>
+                    <li>フルレストア・カスタム車両製作</li>
+                    <li>板金・塗装・仕上げ（サンドブラスト含む）</li>
+                    <li>サーキット向けレーサー製作・メンテナンス</li>
+                  </ul>
+                )},
                 { label: '営業時間', value: '9:00–18:00' },
                 { label: '定休日',   value: 'なし' },
                 { label: '電話番号', value: '000-0000-0000' },
                 { label: 'FAX',      value: '000-0000-0000' },
                 { label: 'メール',   value: 'info@nkworks.com' },
-                { label: '実績',     value: '創業15年以上' },
+                { label: '実績',     value: '創業2年間' },
                 { label: '従業員',   value: '2名' },
               ].map(({ label, value }) => (
                 <div key={label} className="grid grid-cols-[96px_1fr] md:grid-cols-[120px_1fr]">
                   <div className="px-4 py-3 bg-gray-50 text-xs font-bold text-[--text-secondary] flex items-center border-r border-gray-200">{label}</div>
-                  <div className="px-4 py-3 text-sm text-[--text-primary] flex items-center">{value}</div>
+                  <div className="px-4 py-3 text-sm text-[--text-primary]">{value}</div>
                 </div>
               ))}
             </div>
