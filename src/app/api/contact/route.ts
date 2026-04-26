@@ -1,8 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 type ContactFormData = {
   name: string;
   furigana: string;
@@ -37,6 +35,7 @@ export async function POST(request: NextRequest) {
     const receivedAt = new Date().toLocaleString('ja-JP', { timeZone: 'Asia/Tokyo' });
 
     // 管理者への通知メール送信
+    const resend = new Resend(process.env.RESEND_API_KEY);
     const { error } = await resend.emails.send({
       from: 'onboarding@resend.dev',
       to: 'shenwusongxia48@gmail.com',
