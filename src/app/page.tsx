@@ -3,7 +3,25 @@ import Script from 'next/script';
 import { HeroSection } from '@/components/features/HeroSection';
 import { ContactCTA } from '@/components/common/ContactCTA';
 
-export default function Home() {
+async function getCircuitImages() {
+  try {
+    const res = await fetch(
+      `https://naoki-bike.microcms.io/api/v1/gallery?limit=6&filters=title[contains]サーキット活動&orders=publishedAt`,
+      {
+        headers: { 'X-MICROCMS-API-KEY': process.env.MICROCMS_API_KEY || '' },
+        next: { revalidate: 3600 },
+      }
+    );
+    if (!res.ok) return [];
+    const data = await res.json();
+    return data.contents ?? [];
+  } catch {
+    return [];
+  }
+}
+
+export default async function Home() {
+  const circuitImages = await getCircuitImages();
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'AutomotiveBusiness',
@@ -38,45 +56,45 @@ export default function Home() {
   const galleryItems = [
     {
       id: '1',
-      title: 'CB400SF カスタムペイント',
+      title: 'Honda CB750 カスタム完成車',
       category: 'カスタム',
-      description: 'お客様のご要望でキャンディレッドに全塗装。光沢のある美しい仕上がりになりました。',
-      imageUrl: 'https://images.unsplash.com/photo-1558980664-769d59546b3d?q=80&w=2070&auto=format&fit=crop',
+      description: '赤×ゴールドのカラーリングが映えるHonda CB750のカスタム完成車。',
+      imageUrl: 'https://images.microcms-assets.io/assets/5dd44bc9b2924bdfada852944b9a2723/634c7c1226554038a47cb1ec2be8b73c/IMG_1762.jpg',
     },
     {
       id: '2',
-      title: 'Ninja250 エンジン整備',
+      title: 'エンジンオーバーホール',
       category: '修理',
-      description: 'エンジンオーバーホール。異音の原因を特定し、ピストンリング交換で完全復活。',
-      imageUrl: 'https://images.unsplash.com/photo-1487754180451-c456f719a1fc?q=80&w=2070&auto=format&fit=crop',
+      description: 'エンジンを全分解し、内部パーツを点検・交換。新品同様のパフォーマンスに仕上げます。',
+      imageUrl: 'https://images.microcms-assets.io/assets/5dd44bc9b2924bdfada852944b9a2723/3cabca613a234891806ac30a76a3988a/IMG_5810.jpg',
     },
     {
       id: '3',
-      title: 'ハーレー・ダビッドソン ソフテイル 販売車両',
-      category: '販売車両',
-      description: '2019年式 走行12,000km。フルカスタム済み。程度良好な1台です。',
-      imageUrl: 'https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?q=80&w=2070&auto=format&fit=crop',
+      title: 'Kawasaki ZRX 黒×金カスタム',
+      category: 'カスタム',
+      description: '漆黒のボディにゴールドのホイールが映えるKawasaki ZRXのフルカスタム完成車。',
+      imageUrl: 'https://images.microcms-assets.io/assets/5dd44bc9b2924bdfada852944b9a2723/c8c1bcb527f44673a92f4d403ab17d06/IMG_2480.jpg',
     },
     {
       id: '4',
-      title: 'PCX フルメンテナンス',
-      category: '修理',
-      description: '定期メンテナンス実施。オイル交換、タイヤ交換、ブレーキパッド交換など。',
-      imageUrl: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=2070&auto=format&fit=crop',
+      title: 'フレーム塗装（キャンディレッド）',
+      category: 'カスタム',
+      description: '鮮やかなキャンディレッドに仕上げたフレーム塗装。下地処理から仕上げまで一貫して行います。',
+      imageUrl: 'https://images.microcms-assets.io/assets/5dd44bc9b2924bdfada852944b9a2723/51a7e379ddc14d4eb7794598a3f1f44a/IMG_3355.jpg',
     },
     {
       id: '5',
-      title: 'YZF-R25 カスタムパーツ取付',
+      title: 'Kawasaki ZRX ブルーカスタム',
       category: 'カスタム',
-      description: 'アクラポビッチマフラー、バックステップ、セパハン装着。スポーティーな仕上がりに。',
-      imageUrl: 'https://images.unsplash.com/photo-1609630875171-b1321377ee65?q=80&w=2070&auto=format&fit=crop',
+      description: 'ブルー×ゴールドのカラーリングが鮮やかなKawasakiのカスタム完成車。',
+      imageUrl: 'https://images.microcms-assets.io/assets/5dd44bc9b2924bdfada852944b9a2723/9aace8c40fc84aa3983d3d845cce684e/IMG_6278.jpg',
     },
     {
       id: '6',
-      title: 'GSX-R600 カスタムマフラー',
+      title: 'Kawasaki H2 カスタム完成車',
       category: 'カスタム',
-      description: 'ヨシムラマフラー装着。サウンドも抜群で、見た目もスポーティーに。',
-      imageUrl: 'https://images.unsplash.com/photo-1609630875171-b1321377ee65?q=80&w=2070&auto=format&fit=crop',
+      description: 'イエローのカラーリングが印象的なKawasaki H2のカスタム車。当時のスタイルを活かしながらモダンに仕上げました。',
+      imageUrl: 'https://images.microcms-assets.io/assets/5dd44bc9b2924bdfada852944b9a2723/650b6ef2050b486499bfb0838cb27c0d/IMG_3859.jpg',
     },
   ];
 
@@ -182,81 +200,81 @@ export default function Home() {
             </h3>
           </div>
 
-          {/* モバイル: 横スクロール / PC: グリッド */}
+          {/* メインサービス: モバイル横スクロール / PC 2カラム */}
           <div className="overflow-x-auto -mx-4 md:mx-0 snap-x snap-mandatory md:overflow-visible" style={{scrollPaddingLeft: '10vw'}}>
-            <div className="flex gap-4 md:grid md:grid-cols-3 md:gap-6 pb-2 px-[10vw] md:px-0">
-              {/* Service 1 */}
-              <div className="bg-white overflow-hidden transition-all duration-200 hover:shadow-xl border-2 border-transparent hover:border-[--color-primary] flex-shrink-0 w-[80vw] md:w-auto snap-center">
-                <div className="bg-gradient-to-br from-[#cc0000] to-[#990000] p-5 md:p-6 text-white">
-                  <div className="text-4xl md:text-5xl mb-2">🔧</div>
-                  <div className="text-xl md:text-2xl font-bold mb-1">01</div>
-                  <h3 className="text-lg md:text-xl font-bold">修理・整備</h3>
-                </div>
-                <div className="p-5 md:p-6">
-                  <p className="text-xs md:text-sm text-[--text-secondary] mb-3 md:mb-4 leading-relaxed">
-                    一般整備から車検対応まで、確かな技術で丁寧に対応いたします。
-                  </p>
-                  <ul className="text-xs md:text-sm text-[--text-secondary] space-y-2">
-                    <li className="flex items-center"><span className="text-[--color-primary] mr-2">✓</span> 一般整備 ¥5,000〜</li>
-                    <li className="flex items-center"><span className="text-[--color-primary] mr-2">✓</span> 車検対応 ¥30,000〜</li>
-                    <li className="flex items-center"><span className="text-[--color-primary] mr-2">✓</span> エンジンオーバーホール ¥80,000〜</li>
-                    <li className="flex items-center"><span className="text-[--color-primary] mr-2">✓</span> 緊急修理</li>
-                    <li className="flex items-center"><span className="text-[--color-primary] mr-2">✓</span> 定期点検 ¥3,000〜</li>
-                    <li className="flex items-center"><span className="text-[--color-primary] mr-2">✓</span> 電装系修理 ¥5,000〜</li>
+            <div className="flex gap-4 md:grid md:grid-cols-2 md:gap-6 pb-2 px-[10vw] md:px-0">
+              {/* Service 1: レストア・車両製作 */}
+              <div className="relative overflow-hidden flex-shrink-0 w-[80vw] md:w-auto min-h-[400px] md:min-h-[480px] group">
+                <Image
+                  src="https://images.microcms-assets.io/assets/5dd44bc9b2924bdfada852944b9a2723/c8c1bcb527f44673a92f4d403ab17d06/IMG_2480.jpg"
+                  alt="レストア・車両製作"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-700"
+                  sizes="(max-width: 768px) 80vw, 50vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-black/20" />
+                <div className="absolute inset-0 p-6 md:p-8 flex flex-col justify-between text-white">
+                  <div>
+                    <div className="text-xs font-bold tracking-widest text-[--color-primary] mb-1">01</div>
+                    <h3 className="text-2xl md:text-3xl font-bold mb-3">レストア・車両製作</h3>
+                    <p className="text-xs md:text-sm text-white/80 leading-relaxed mb-4">
+                      旧車のレストアから完全オーダーメイドの車両製作まで承ります。お客様の理想を形にします。
+                    </p>
+                  </div>
+                  <ul className="text-xs md:text-sm text-white/90 space-y-2">
+                    <li className="flex items-center"><span className="text-[--color-primary] mr-2">✓</span> 旧車レストア・フルレストア</li>
+                    <li className="flex items-center"><span className="text-[--color-primary] mr-2">✓</span> オーダー車両製作</li>
+                    <li className="flex items-center"><span className="text-[--color-primary] mr-2">✓</span> エンジンオーバーホール</li>
+                    <li className="flex items-center"><span className="text-[--color-primary] mr-2">✓</span> フレーム加工・製作</li>
+                    <li className="flex items-center text-[--color-primary] font-bold mt-3"><span className="mr-2">→</span> 料金はお問い合わせください</li>
                   </ul>
                 </div>
               </div>
 
-              {/* Service 2 */}
-              <div className="bg-white overflow-hidden transition-all duration-200 hover:shadow-xl border-2 border-transparent hover:border-[--color-primary] flex-shrink-0 w-[80vw] md:w-auto snap-center">
-                <div className="bg-gradient-to-br from-[#cc0000] to-[#990000] p-5 md:p-6 text-white">
-                  <div className="text-4xl md:text-5xl mb-2">⚡</div>
-                  <div className="text-xl md:text-2xl font-bold mb-1">02</div>
-                  <h3 className="text-lg md:text-xl font-bold">カスタム・チューニング</h3>
-                </div>
-                <div className="p-5 md:p-6">
-                  <p className="text-xs md:text-sm text-[--text-secondary] mb-3 md:mb-4 leading-relaxed">
-                    お客様だけの一台を。ご要望に合わせたカスタムやチューニングを承ります。
-                  </p>
-                  <ul className="text-xs md:text-sm text-[--text-secondary] space-y-2">
-                    <li className="flex items-center"><span className="text-[--color-primary] mr-2">✓</span> マフラー交換 ¥10,000〜</li>
-                    <li className="flex items-center"><span className="text-[--color-primary] mr-2">✓</span> ハンドル・ミラー交換 ¥5,000〜</li>
-                    <li className="flex items-center"><span className="text-[--color-primary] mr-2">✓</span> カスタムペイント ¥50,000〜</li>
-                    <li className="flex items-center"><span className="text-[--color-primary] mr-2">✓</span> パーツ取り付け ¥3,000〜</li>
-                    <li className="flex items-center"><span className="text-[--color-primary] mr-2">✓</span> サスペンション交換 ¥15,000〜</li>
-                    <li className="flex items-center"><span className="text-[--color-primary] mr-2">✓</span> ECUチューニング ¥30,000〜</li>
-                  </ul>
-                </div>
-              </div>
-
-              {/* Service 3 */}
-              <div className="bg-white overflow-hidden transition-all duration-200 hover:shadow-xl border-2 border-transparent hover:border-[--color-primary] flex-shrink-0 w-[80vw] md:w-auto snap-center">
-                <div className="bg-gradient-to-br from-[#cc0000] to-[#990000] p-5 md:p-6 text-white">
-                  <div className="text-4xl md:text-5xl mb-2">🏍️</div>
-                  <div className="text-xl md:text-2xl font-bold mb-1">03</div>
-                  <h3 className="text-lg md:text-xl font-bold">中古車販売・買取</h3>
-                </div>
-                <div className="p-5 md:p-6">
-                  <p className="text-xs md:text-sm text-[--text-secondary] mb-3 md:mb-4 leading-relaxed">
-                    厳選された中古バイクを取り揃えています。買取も積極的に行っています。
-                  </p>
-                  <ul className="text-xs md:text-sm text-[--text-secondary] space-y-2">
-                    <li className="flex items-center"><span className="text-[--color-primary] mr-2">✓</span> 中古車販売（全車保証付き）</li>
-                    <li className="flex items-center"><span className="text-[--color-primary] mr-2">✓</span> バイク買取（査定無料）</li>
-                    <li className="flex items-center"><span className="text-[--color-primary] mr-2">✓</span> 下取り対応</li>
-                    <li className="flex items-center"><span className="text-[--color-primary] mr-2">✓</span> 納車整備無料</li>
-                    <li className="flex items-center"><span className="text-[--color-primary] mr-2">✓</span> 車両探し代行 ¥10,000〜</li>
-                    <li className="flex items-center"><span className="text-[--color-primary] mr-2">✓</span> 名義変更代行 ¥8,000〜</li>
+              {/* Service 2: 板金・塗装・仕上げ */}
+              <div className="relative overflow-hidden flex-shrink-0 w-[80vw] md:w-auto min-h-[400px] md:min-h-[480px] group">
+                <Image
+                  src="https://images.microcms-assets.io/assets/5dd44bc9b2924bdfada852944b9a2723/51a7e379ddc14d4eb7794598a3f1f44a/IMG_3355.jpg"
+                  alt="板金・塗装・仕上げ"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-700"
+                  sizes="(max-width: 768px) 80vw, 50vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-black/20" />
+                <div className="absolute inset-0 p-6 md:p-8 flex flex-col justify-between text-white">
+                  <div>
+                    <div className="text-xs font-bold tracking-widest text-[--color-primary] mb-1">02</div>
+                    <h3 className="text-2xl md:text-3xl font-bold mb-3">板金・塗装・仕上げ</h3>
+                    <p className="text-xs md:text-sm text-white/80 leading-relaxed mb-4">
+                      板金・塗装から磨き・バフ仕上げまで。細部にこだわった高品質な仕上がりを提供します。
+                    </p>
+                  </div>
+                  <ul className="text-xs md:text-sm text-white/90 space-y-2">
+                    <li className="flex items-center"><span className="text-[--color-primary] mr-2">✓</span> 板金・塗装</li>
+                    <li className="flex items-center"><span className="text-[--color-primary] mr-2">✓</span> バフ仕上げ・磨き</li>
+                    <li className="flex items-center"><span className="text-[--color-primary] mr-2">✓</span> サンドブラスト処理</li>
+                    <li className="flex items-center"><span className="text-[--color-primary] mr-2">✓</span> パーツ単体・フレーム塗装</li>
+                    <li className="flex items-center text-[--color-primary] font-bold mt-3"><span className="mr-2">→</span> 料金はお問い合わせください</li>
                   </ul>
                 </div>
               </div>
             </div>
+          </div>
+
+          {/* 一般・車検整備（サブ） */}
+          <div className="mt-6 bg-white border border-gray-200 px-6 py-4 flex flex-col md:flex-row md:items-center md:justify-between gap-2">
+            <div className="flex items-center gap-3">
+              <span className="text-[--color-primary] font-bold text-sm">その他</span>
+              <span className="text-sm text-[--text-secondary]">一般整備・車検・事故対応・レッカー業務も承ります。</span>
+            </div>
+            <span className="text-xs text-[--text-secondary]">料金はお問い合わせください</span>
           </div>
           <div className="flex md:hidden justify-center gap-1 mt-3 text-xs text-[--text-secondary]">
             <svg className="w-4 h-4 animate-pulse" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M15 19l-7-7 7-7" /></svg>
             <span>スワイプで見る</span>
             <svg className="w-4 h-4 animate-pulse" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M9 5l7 7-7 7" /></svg>
           </div>
+
         </div>
       </section>
 
@@ -305,6 +323,59 @@ export default function Home() {
             <svg className="w-4 h-4 animate-pulse" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M15 19l-7-7 7-7" /></svg>
             <span>スワイプで見る</span>
             <svg className="w-4 h-4 animate-pulse" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M9 5l7 7-7 7" /></svg>
+          </div>
+        </div>
+      </section>
+
+      {/* Circuit Section */}
+      <section className="py-16 md:py-20 bg-gray-900">
+        <div className="container-custom">
+          <div className="text-center mb-10 md:mb-14">
+            <h2 className="text-xs md:text-sm font-bold mb-3 text-[--color-primary] tracking-widest uppercase">
+              CIRCUIT ACTIVITY
+            </h2>
+            <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
+              サーキット活動
+            </h3>
+            <p className="text-sm md:text-base text-gray-400 max-w-2xl mx-auto leading-relaxed">
+              NK Worksはレースフィールドにも積極的に参戦。<br className="hidden md:block" />
+              サーキットで培った技術と経験が、すべての車両製作・整備に活かされています。
+            </p>
+          </div>
+
+          {circuitImages.length > 0 && (
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-3 mb-10">
+              {circuitImages.map((item: { id: string; title: string; images: { url: string }[] }) => (
+                <div key={item.id} className="relative aspect-square overflow-hidden">
+                  <Image
+                    src={item.images[0]?.url}
+                    alt={item.title}
+                    fill
+                    className="object-cover hover:scale-105 transition-transform duration-500"
+                    sizes="(max-width: 768px) 50vw, 33vw"
+                  />
+                  <div className="absolute inset-0 bg-black/20 hover:bg-black/10 transition-colors" />
+                </div>
+              ))}
+            </div>
+          )}
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+            <div className="border border-gray-700 p-5 md:p-6 text-center">
+              <div className="text-3xl mb-3">🏁</div>
+              <h4 className="text-base font-bold text-white mb-2">レーサー製作</h4>
+              <p className="text-xs md:text-sm text-gray-400 leading-relaxed">サーキット仕様のレーサー製作・改造を承ります。本気で走りたい方はご相談ください。</p>
+            </div>
+            <div className="border border-gray-700 p-5 md:p-6 text-center">
+              <div className="text-3xl mb-3">⚙️</div>
+              <h4 className="text-base font-bold text-white mb-2">マシンメンテナンス</h4>
+              <p className="text-xs md:text-sm text-gray-400 leading-relaxed">レース前後のメンテナンス・セッティング調整。走りのパフォーマンスを最大限に引き出します。</p>
+            </div>
+            <div className="border border-gray-700 p-5 md:p-6 text-center">
+              <div className="text-3xl mb-3">🏆</div>
+              <h4 className="text-base font-bold text-white mb-2">レース参戦実績</h4>
+              <p className="text-xs md:text-sm text-gray-400 leading-relaxed">自らサーキットに立ち、実戦で得た知識と技術。その経験がお客様のマシンに還元されます。</p>
+            </div>
           </div>
         </div>
       </section>
