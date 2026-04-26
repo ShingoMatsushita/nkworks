@@ -171,16 +171,40 @@ export default async function Home() {
           <SectionHeader label="ABOUT US" title="直樹バイクについて" description="創業15年以上、地域のライダーの皆様に愛されるショップです。国家資格を持つ整備士が在籍し、確かな技術と丁寧なサービスでお客様のバイクライフを全力でサポートしています。" />
 
           {/* 3つの強み */}
-          <div className="grid grid-cols-1 md:grid-cols-3 border border-gray-200 divide-y md:divide-y-0 md:divide-x divide-gray-200 mb-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-gray-800 mb-6 overflow-hidden">
             {[
-              { num: '01', title: '確かな技術力', desc: '国家資格整備士が在籍。豊富な経験と最新知識で、あらゆる車種に対応します。' },
-              { num: '02', title: '明朗会計', desc: '作業前に必ず見積もりをご提示。追加費用が生じる場合も事前にご連絡します。' },
-              { num: '03', title: 'スピード対応', desc: '緊急修理にも迅速に対応。お客様の愛車をできる限り早くお返しします。' },
-            ].map(({ num, title, desc }) => (
-              <div key={num} className="p-6 md:p-8">
-                <div className="text-5xl font-black text-[--color-primary]/10 leading-none mb-3 select-none">{num}</div>
-                <h3 className="font-bold text-[--text-primary] mb-2">{title}</h3>
-                <p className="text-sm text-[--text-secondary] leading-relaxed">{desc}</p>
+              {
+                num: '01',
+                en: 'TECHNICAL SKILL',
+                title: '確かな技術力',
+                desc: '国家資格整備士が在籍。豊富な経験と最新知識で、国産・外車問わずあらゆる車種に対応します。',
+              },
+              {
+                num: '02',
+                en: 'TRANSPARENT PRICING',
+                title: '明朗会計',
+                desc: '作業前に必ず見積もりをご提示。追加費用が生じる場合も必ず事前にご連絡します。',
+              },
+              {
+                num: '03',
+                en: 'QUICK RESPONSE',
+                title: 'スピード対応',
+                desc: '緊急修理にも迅速に対応。お客様の愛車をできる限り早くお返しすることを最優先にします。',
+              },
+            ].map(({ num, en, title, desc }) => (
+              <div key={num} className="relative bg-gray-900 px-7 py-8 md:px-8 md:py-10 overflow-hidden group">
+                {/* 装飾数字 */}
+                <div
+                  className="absolute -top-4 -right-2 text-[8rem] md:text-[9rem] font-black leading-none select-none text-white/[0.04] group-hover:text-white/[0.07] transition-colors duration-500 pointer-events-none"
+                  aria-hidden="true"
+                >
+                  {num}
+                </div>
+                {/* 赤いトップボーダー */}
+                <div className="w-8 h-0.5 bg-[--color-primary] mb-5" />
+                <p className="text-[10px] font-bold tracking-widest text-[--color-primary] mb-2 uppercase">{en}</p>
+                <h3 className="text-lg md:text-xl font-bold text-white mb-3">{title}</h3>
+                <p className="text-sm text-gray-400 leading-relaxed">{desc}</p>
               </div>
             ))}
           </div>
