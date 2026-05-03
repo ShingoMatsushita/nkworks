@@ -18,7 +18,7 @@ export const HERO_SLIDES: readonly HeroSlide[] = [
   },
   {
     id: 2,
-    image: 'https://images.microcms-assets.io/assets/5dd44bc9b2924bdfada852944b9a2723/c8c1bcb527f44673a92f4d403ab17d06/IMG_2480.jpg',
+    image: 'https://images.microcms-assets.io/assets/5dd44bc9b2924bdfada852944b9a2723/51a7e379ddc14d4eb7794598a3f1f44a/IMG_3355.jpg',
     label: 'RESTORE & CUSTOM BUILD',
     title: 'レストア・',
     subtitle: '車両製作',
@@ -26,7 +26,7 @@ export const HERO_SLIDES: readonly HeroSlide[] = [
   },
   {
     id: 3,
-    image: 'https://images.microcms-assets.io/assets/5dd44bc9b2924bdfada852944b9a2723/51a7e379ddc14d4eb7794598a3f1f44a/IMG_3355.jpg',
+    image: 'https://images.microcms-assets.io/assets/5dd44bc9b2924bdfada852944b9a2723/d0e296dbf4c1477b84b13d04b3d13985/paint-buff.jpeg',
     label: 'PAINT & FINISH',
     title: '板金・塗装・',
     subtitle: 'バフ仕上げ',

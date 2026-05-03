@@ -376,7 +376,7 @@ export default function ContactPage() {
                   <p className="text-2xl font-bold text-[--color-primary] mb-2">000-0000-0000</p>
                   <p className="text-sm text-[--text-secondary] mb-4">
                     受付時間: 9:00 - 18:00<br />
-                    定休日: 水曜日、第2・第4日曜日
+                    定休日: なし
                   </p>
                   <p className="text-xs text-[--text-secondary]">
                     お急ぎの方はお電話が確実です

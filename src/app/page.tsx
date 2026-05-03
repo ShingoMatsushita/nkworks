@@ -155,7 +155,7 @@ export default async function Home() {
       {/* ===== About ===== */}
       <section className="py-16 md:py-20 bg-white">
         <div className="container-custom">
-          <SectionHeader label="ABOUT US" title="直樹バイクについて" description="創業2年、地域のライダーの皆様に愛されるショップです。国家資格を持つ整備士が在籍し、確かな技術と丁寧なサービスでお客様のバイクライフを全力でサポートしています。" />
+          <SectionHeader label="ABOUT US" title="NK Worksについて" description="創業2年、地域のライダーの皆様に愛されるショップです。国家資格を持つ整備士が在籍し、確かな技術と丁寧なサービスでお客様のバイクライフを全力でサポートしています。" />
 
           {/* 会社概要 */}
           <div className="grid grid-cols-1 md:grid-cols-[280px_1fr] border border-gray-200 overflow-hidden">
@@ -212,7 +212,7 @@ export default async function Home() {
             <div>
               <div className="relative overflow-hidden min-h-[400px] md:min-h-[460px] group mb-5">
                 <Image
-                  src="https://images.microcms-assets.io/assets/5dd44bc9b2924bdfada852944b9a2723/c8c1bcb527f44673a92f4d403ab17d06/IMG_2480.jpg"
+                  src="https://images.microcms-assets.io/assets/5dd44bc9b2924bdfada852944b9a2723/51a7e379ddc14d4eb7794598a3f1f44a/IMG_3355.jpg"
                   alt="レストア・車両製作"
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-700"
@@ -250,7 +250,7 @@ export default async function Home() {
             <div>
               <div className="relative overflow-hidden min-h-[400px] md:min-h-[460px] group mb-5">
                 <Image
-                  src="https://images.microcms-assets.io/assets/5dd44bc9b2924bdfada852944b9a2723/51a7e379ddc14d4eb7794598a3f1f44a/IMG_3355.jpg"
+                  src="https://images.microcms-assets.io/assets/5dd44bc9b2924bdfada852944b9a2723/d0e296dbf4c1477b84b13d04b3d13985/paint-buff.jpeg"
                   alt="板金・塗装・仕上げ"
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-700"
