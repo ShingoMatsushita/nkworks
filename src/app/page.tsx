@@ -162,8 +162,8 @@ export default async function Home() {
             {/* 写真 */}
             <div className="relative h-56 md:h-auto overflow-hidden bg-gray-100">
               <Image
-                src="https://images.microcms-assets.io/assets/5dd44bc9b2924bdfada852944b9a2723/634c7c1226554038a47cb1ec2be8b73c/IMG_1762.jpg"
-                alt="NK Works"
+                src="https://images.microcms-assets.io/assets/5dd44bc9b2924bdfada852944b9a2723/fde69930947b429184ecd4de5cb5eab3/IMG_1310.jpg"
+                alt="NK Works サーキット活動"
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 280px"

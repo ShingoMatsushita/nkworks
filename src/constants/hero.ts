@@ -34,7 +34,7 @@ export const HERO_SLIDES: readonly HeroSlide[] = [
   },
   {
     id: 4,
-    image: 'https://images.microcms-assets.io/assets/5dd44bc9b2924bdfada852944b9a2723/3cabca613a234891806ac30a76a3988a/IMG_5810.jpg',
+    image: 'https://images.microcms-assets.io/assets/5dd44bc9b2924bdfada852944b9a2723/5f2de3a951de4e268fedec76cfa9b1af/IMG_1315.jpg',
     label: 'CIRCUIT ACTIVITY',
     title: 'サーキットで',
     subtitle: '鍛えた技術を',
